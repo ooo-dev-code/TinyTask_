@@ -13,15 +13,24 @@ def Tinytask():
         pyautogui.write(value[i])
         pyautogui.click()
     
+def App():
+    window = Tk()
+    
+    window.title("Password Generator")
+    window.geometry("720x480")
+    window.config(background="#000000")
+    
+    label = Label(window, text="TinyTask, Press the keys to repeat in the entry.", width=720, fg="white", bg="black", font="700")
+    label.pack()
+    
+    frame = Frame(window, bg="black", width=700, height=460)
+    frame.pack(expand=YES)
 
-window = Tk()
-window.title("Password Generator")
-window.geometry("720x480")
-window.config(background="#000000")
+    input = Entry(frame)
+    input.pack()
+    b_put = Button(frame, text="Start", font="Courrier, 30", command=Tinytask)
+    b_put.pack(expand=YES)
 
-input = Entry(window)
-input.grid(row=2)
-b_put = Button(window, text="Start", font="Courrier, 30", command=Tinytask)
-b_put.grid(row=3)
-
-window.mainloop()
+    window.mainloop()
+    
+App()
